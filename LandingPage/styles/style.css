@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html, body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    color: white;
+    background-image: url('../images/seria.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #4a362f;
+    color: #fff;
+    height: 25px;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f0a500;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #f0a500;
+}
+
+.descricao {
+    position: absolute;
+    top: 30%; /* Ajuste vertical para ficar mais alto na tela */
+    right: 1%; /* Alinhado à esquerda com espaçamento */
+    text-align: left;
+    color: #fff;
+    max-width: 570px; /* Limita a largura para um layout mais compacto */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.descricao h1 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.descricao p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.descricao .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #4a362f;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 15px;
+}
+
+.descricao .btn:hover {
+    background-color: #f0a500;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.social-icons a {
+    font-size: 2em;
+    color: #333; /* Cor dos ícones */
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f0a500; /* Cor ao passar o mouse */
+    transform: scale(1.2);
+}

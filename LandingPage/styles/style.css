@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Kanit', sans-serif;
 }
 
 html, body {
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -16,33 +18,42 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 4s; /* Slow motion de 4 segundos */
 }
 
-
+.fade-in {
+    opacity: 1; /* Revela o conteúdo */
+}
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background-color: #4a362f;
+    background-color: #2c1812;
     color: #fff;
-    height: 25px;
+    border-bottom: 2px solid #fff;
+    flex-wrap: nowrap; /* Impede a quebra de linha */
 }
 
 header .logo {
     font-size: 24px;
     font-weight: bold;
+    font-style: oblique;
     color: #f0a500;
+    white-space: nowrap; /* Impede que a logo quebre a linha */
 }
 
 header nav ul {
     list-style-type: none;
     display: flex;
+    flex-wrap: nowrap; /* Impede a quebra de linha na lista */
 }
 
 header nav ul li {
     margin-left: 20px;
+    white-space: nowrap; /* Impede que os itens quebrem a linha */
 }
 
 header nav ul li a {
@@ -53,35 +64,50 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #f0a500;
+    color: #f0a500; /* Altere para a cor desejada */
+}
+
+header nav {
+    position: relative; /* Para o menu toggle */
+}
+
+.menu-toggle {
+    display: none; /* Oculta por padrão */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 4px;
+    width: 25px;
+    background-color: #f0a500;
+    margin: 3px 0;
 }
 
 .descricao {
     position: absolute;
-    top: 30%; /* Ajuste vertical para ficar mais alto na tela */
-    right: 1%; /* Alinhado à esquerda com espaçamento */
+    top: 50%; /* Ajuste vertical para ficar mais alto na tela */
+    left: 5%; /* Espaço à esquerda */
     text-align: left;
     color: #fff;
     max-width: 570px; /* Limita a largura para um layout mais compacto */
     padding: 20px;
-    border-radius: 8px;
 }
 
 .descricao h1 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 2em; /* Tamanho do título */
 }
 
 .descricao p {
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 16px; /* Tamanho do texto */
 }
 
 .descricao .btn {
+    margin-bottom: 20%;
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
-    background-color: #4a362f;
+    background-color: #2c1812;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
@@ -104,13 +130,100 @@ footer {
 
 .social-icons a {
     font-size: 2em;
-    color: #333; /* Cor dos ícones */
+    color: #333;
     margin: 0 15px;
     text-decoration: none;
     transition: color 0.3s, transform 0.3s;
 }
 
 .social-icons a:hover {
-    color: #f0a500; /* Cor ao passar o mouse */
+    color: #f0a500;
     transform: scale(1.2);
+}
+
+.carousel {
+    position: absolute;
+    top: 20%; /* Ajuste vertical para ficar mais alto na tela */
+    right: 10%; /* Espaço à esquerda */
+    width: 90%; /* Ajuste para largura responsiva */
+    max-width: 340px; /* Ajuste o tamanho conforme necessário */
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.2s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.carousel img {
+    width: 100%; /* Ajusta a imagem para preencher o contêiner */
+    border-radius: 8px;
+}
+
+.carousel p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.carousel-title {
+    text-align: center; /* Centraliza o texto */
+    font-size: 24px; /* Tamanho da fonte */
+    color: #fff; /* Cor do texto */
+    margin-bottom: 5px; /* Espaço abaixo do título */
+    animation: blink 1s infinite; /* Adiciona a animação de piscar */
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Totalmente visível */
+    }
+    50% {
+        opacity: 0.5; /* Totalmente invisível */
+    }
+}
+
+.carousel-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.look-title {
+    position: absolute; /* Permite posicionar o título sobre a imagem */
+    bottom: 10px; /* Distância da parte inferior */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Compensa a largura do título para centralizar */
+    padding: 5px 10px; /* Espaçamento interno */
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+#welcome-message {
+    font-weight: bold;
+    font-style: oblique;
 }
